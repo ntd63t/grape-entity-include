@@ -1,5 +1,4 @@
 require_relative 'lib/grape_entity_include/version'
-
 Gem::Specification.new do |spec|
   spec.name          = "grape-entity-include"
   spec.version       = GrapeEntityInclude::VERSION
@@ -26,6 +25,6 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "grape-entity", "~> 0.5.0"
+  spec.add_dependency "grape-entity", ">= 0.5.0"
   spec.add_dependency "activesupport"
 end
