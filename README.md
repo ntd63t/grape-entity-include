@@ -27,7 +27,7 @@ Assume that you already had grape entities that sit on top of object models.
 UserEntity.represent(user_model, include: [:friends, { posts: [:comments, :photos] }])
 
 class UserEntity < Grape::Entity
-  expose :name
+    expose :name
     expose :email
     expose :friends, using: UserEntity, if: include_attr_path?
     expose :posts, using: PostEntity, if: include_attr_path?
@@ -45,7 +45,7 @@ class CommentEntity < Grape::Entity
 end
 
 class PhotoEntity < Grape::Entity
-  expose :caption
+    expose :caption
     expose :url
 end
 
