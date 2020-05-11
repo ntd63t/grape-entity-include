@@ -1,1 +1,1 @@
-require 'grape_entity_include/version'
+require 'grape_entity_include'
