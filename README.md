@@ -1,8 +1,6 @@
 # GrapeEntityInclude
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/grape/entity/include`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+An include option for grape-entity, expose attributes if matching with attr_path option by using `include_attr_path?` method
 
 ## Installation
 
@@ -22,7 +20,36 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Assume that you already had grape entities that sit on top of object models.
+
+### Example
+```ruby
+UserEntity.represent(user_model, include: [:friends, { posts: [:comments, :photos] }])
+
+class UserEntity < Grape::Entity
+  expose :name
+    expose :email
+    expose :friends, using: UserEntity, if: include_attr_path?
+    expose :posts, using: PostEntity, if: include_attr_path?
+end
+
+class PostEntity < Grape::Entity
+    expose :title
+    expose :content
+    expose :comments, using: CommentEntity, if: include_attr_path?
+    expose :photos, using: PhotoEntity, if: include_attr_path?
+end
+
+class CommentEntity < Grape::Entity
+    expose :content
+end
+
+class PhotoEntity < Grape::Entity
+  expose :caption
+    expose :url
+end
+
+```
 
 ## Development
 
@@ -32,7 +59,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/grape-entity-include. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/grape-entity-include/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/ntd63t/grape-entity-include. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/ntd63t/grape-entity-include/blob/master/CODE_OF_CONDUCT.md).
 
 
 ## License
@@ -41,4 +68,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the GrapeEntityInclude project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/grape-entity-include/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the GrapeEntityInclude project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/ntd63t/grape-entity-include/blob/master/CODE_OF_CONDUCT.md).
