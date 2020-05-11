@@ -5,11 +5,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Dzung Nguyen"]
   spec.email         = ["ntd63t@gmail.com"]
 
-  spec.summary       = %q{grape-entity-include}
-  spec.description   = %q{grape-entity-include}
+  spec.summary       = %q{An include option for grape-entity, expose attributes if matching with attr_path option}
+  spec.description   = %q{An include option for grape-entity, expose attributes if matching with attr_path option}
   spec.homepage      = "https://github.com/ntd63t/grape-entity-include.git"
   spec.license       = "MIT"
-  spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
