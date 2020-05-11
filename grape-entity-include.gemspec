@@ -5,8 +5,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Dzung Nguyen"]
   spec.email         = ["ntd63t@gmail.com"]
 
-  spec.summary       = %q{An include option for grape-entity, expose attributes if matching with attr_path option}
-  spec.description   = %q{An include option for grape-entity, expose attributes if matching with attr_path option}
+  spec.summary       = %q{An include option for grape-entity, expose object model's attributes if matching with attr_path option}
+  spec.description   = %q{An include option for grape-entity, expose object model's attributes if matching with attr_path option}
   spec.homepage      = "https://github.com/ntd63t/grape-entity-include.git"
   spec.license       = "MIT"
 

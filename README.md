@@ -1,6 +1,6 @@
 # GrapeEntityInclude
 
-An include option for grape-entity, expose attributes if matching with attr_path option by using `include_attr_path?` method
+An include option for grape-entity, expose object model's attributes if matching with attr_path option by using `include_attr_path?` method
 
 ## Installation
 
@@ -24,6 +24,7 @@ Assume that you already had grape entities that sit on top of object models.
 
 ### Example
 ```ruby
+require 'grape_entity_include'
 UserEntity.represent(user_model, include: [:friends, { posts: [:comments, :photos] }])
 
 class UserEntity < Grape::Entity
