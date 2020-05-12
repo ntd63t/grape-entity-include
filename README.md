@@ -25,6 +25,7 @@ Assume that you already had grape entities that sit on top of object models.
 ### Example
 ```ruby
 require 'grape_entity_include'
+
 UserEntity.represent(user_model, include: [:friends, { posts: [:comments, :photos] }])
 
 class UserEntity < Grape::Entity
